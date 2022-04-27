@@ -4,11 +4,13 @@
     <p><%= game.release_year %>, <%= game.genre %></p>
     <p><%= game.description %></p>
   </div>
-  
+
+  <div>
   <h2>Highscores</h2>
   <% game.highscores.forEach(highscore => { %>
   <div class="detailsHighscores">
-    <p><%= highscore.player %>, datum</p>
-    <p>Highscore</p>
+    <p><%= highscore.player %>, <%= highscore.date %></p>
+    <p><%= highscore.points %></p>
   </div>
   <% }) %>
+</div>

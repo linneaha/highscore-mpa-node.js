@@ -20,12 +20,16 @@ router.get("/:urlSlug", async function (req, res) {
   const result = await db.query(sql, [urlSlug]);
 
   const game = {
-    title: result.rows[0].game_title,
-    highscores: result.rows.map(x =>({
-      player: x.highscores_player,
-      date: x.highscores_date,
-      points: x.highscores_points,
-    }))
+    title: result.rows[0].title,
+    genre: result.rows[0].genre,
+    description: result.rows[0].description,
+    release_year: result.rows[0].release_year,
+    image_url: result.rows[0].image_url,
+    highscores: result.rows.map(x => ({
+      player: x.player,
+      date: x.date,
+      points: x.points
+  }))
   };
 
   res.render("games/details", {
