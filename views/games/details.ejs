@@ -1,0 +1,14 @@
+<div>
+    <img src="<%= game.image_url %>" alt=""/>
+    <h2><%= game.title %></h2>
+    <p><%= game.release_year %>, <%= game.genre %></p>
+    <p><%= game.description %></p>
+  </div>
+  
+  <h2>Highscores</h2>
+  <% game.highscores.forEach(highscore => { %>
+  <div class="detailsHighscores">
+    <p><%= highscore.player %>, datum</p>
+    <p>Highscore</p>
+  </div>
+  <% }) %>

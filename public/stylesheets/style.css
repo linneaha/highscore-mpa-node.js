@@ -1,0 +1,68 @@
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
+
+body {
+  margin: 0px;
+  font-size: 14px;
+  font-family: "Press Start 2P", cursive;
+}
+
+a {
+  color: #00b7ff;
+}
+
+header {
+  background-color: #2a3492;
+  text-align: center;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+main {
+  padding: 30px;
+  text-align: center;
+  background-color: #ef9526;
+  min-height: 650px;
+}
+
+footer {
+  text-align: center;
+  background-color: #4faf44;
+  padding: 20px;
+}
+
+header img {
+  width: 150px;
+  padding: 10px;
+}
+
+.indexGames {
+  background-color: #B3B4B6;
+  border: dashed 4px black;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 30px;
+  margin: 20px;
+}
+
+.searchGames {
+  border: dashed 4px black;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+h1 {
+  margin: 0px;
+}
+
+a {
+  text-decoration: none;
+  color:black;
+}
+a:hover {
+  color:#2a3492;
+}
