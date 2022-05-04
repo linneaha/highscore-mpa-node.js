@@ -1,7 +1,6 @@
 var express = require('express');
 var router = express.Router();
 
-// GET /admin/games
 router.get('/', async (req, res) => {
 
     const db = req.app.locals.db;
@@ -14,7 +13,6 @@ router.get('/', async (req, res) => {
     });
 });
 
-// GET /admin/games/new
 router.get('/new', async (req, res) => {
 
     res.render('admin/games/new', {
@@ -22,23 +20,22 @@ router.get('/new', async (req, res) => {
     });
 });
 
-// POST /admin/games/new
 router.post('/new', async (req, res) => {
 
     const {
         title,
         description,
+        imageUrl,
         genre,
         releaseYear,
-        imageUrl
     } = req.body;
 
     const game = {
         title,
         description,
+        imageUrl,
         genre,
         releaseYear,
-        imageUrl,
         urlSlug: generateURLSlug(title)
     };
 
@@ -46,10 +43,6 @@ router.post('/new', async (req, res) => {
 
     await saveGames(game, db);
 
-    // Backend skickas en 302 Found till klient, 
-    // tillsammans med en Location-header som 
-    // kommer vara satt till värdet nedan, alltså
-    // "/admin/games"
     res.redirect('/admin/games');
 });
 
@@ -64,20 +57,19 @@ async function saveGames(game, db) {
         INSERT INTO game (
             title,
             description,
-            image_url,
             genre,
             release_year,
-            url_slug,
-           
+            image_url,
+            url_slug
         ) VALUES ($1, $2, $3, $4, $5, $6)
     `;
 
     await db.query(sql, [
         game.title,
         game.description,
-        game.imageUrl,
         game.genre,
         game.releaseYear,
+        game.imageUrl,
         game.urlSlug
     ]);
 

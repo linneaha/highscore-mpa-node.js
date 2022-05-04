@@ -32,9 +32,12 @@ router.get("/:urlSlug", async function (req, res) {
   }))
   };
 
+  let sorted = game.highscores.sort((a,b) => a.date - b.date);
+
   res.render("games/details", {
     title: game.title,
-    game
+    game: game,
+    sorted: sorted.slice(0,10)
   });
 });
 

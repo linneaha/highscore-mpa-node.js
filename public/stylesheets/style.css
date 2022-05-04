@@ -42,7 +42,7 @@ header img {
   background-color: #B3B4B6;
   border: dashed 4px black;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-between;
   padding: 30px;
   margin: 20px;
@@ -53,10 +53,12 @@ header img {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  padding: 20px;
+  margin-top: 40px;
 }
 
 .detailsFlexbox {
-  text-align: center;
+  text-align: left;
   display: flex;
   padding-bottom: 50px;
 }
@@ -65,14 +67,18 @@ header img {
   padding-left: 30px;
 }
 
+.container1 {
+  text-align: left;
+}
+
 .detailsHighscores {
   background-color: #B3B4B6;
   border: dashed 4px black;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 30px;
-  margin: 20px;
+  padding: 15px;
+  margin-top: 25px;
 }
 
 h1 {
@@ -83,6 +89,44 @@ a {
   text-decoration: none;
   color:black;
 }
+
 a:hover {
   color:#2a3492;
+}
+
+form {
+
+}
+
+.adminFlex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+} 
+
+/* Table */
+
+#gamesTable {
+  width: 100%;
+}
+
+#gamesTable td, #gamesTable th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#gamesTable tr:nth-child(even){background-color: #f2f2f2;}
+#gamesTable tr:nth-child(odd){background-color: #8b7676;}
+
+#gamesTable th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
+
+#yearGenre {
+  font-size: 10px;
+  margin: 20px 0px 25px 0px;
 }

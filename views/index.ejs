@@ -1,11 +1,11 @@
 <h1><%= title %></h1>
 <% highscores.forEach(highscore => { %>
 <div class="indexGames">
-  <div id="container1">
+  <div class="container1">
     <h3><%= highscore.game %></h3>
     <p><%= highscore.player %>, <%= highscore.date.toLocaleDateString(); %></p>
   </div>
-  <div id="container2">
+  <div class="container2">
     <p><%= highscore.points %></p>
   </div>
 </div>
