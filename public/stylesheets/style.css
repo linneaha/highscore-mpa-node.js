@@ -42,7 +42,7 @@ header img {
   background-color: #B3B4B6;
   border: dashed 4px black;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
   padding: 30px;
   margin: 20px;
@@ -53,6 +53,26 @@ header img {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+
+.detailsFlexbox {
+  text-align: center;
+  display: flex;
+  padding-bottom: 50px;
+}
+
+.detailsFlexbox > div {
+  padding-left: 30px;
+}
+
+.detailsHighscores {
+  background-color: #B3B4B6;
+  border: dashed 4px black;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 30px;
+  margin: 20px;
 }
 
 h1 {
