@@ -1,21 +1,31 @@
 var express = require("express");
 var router = express.Router();
 
-router.get('/', async function (req, res) {
+router.get("/", async (req, res) => {
   const db = req.app.locals.db;
 
   const sql = `
-    SELECT game,
-          player,
-          date,
-          points
-    FROM highscores
+    SELECT game.title,
+           game.url_slug,
+           player,
+           date,
+           points
+    FROM score
+    INNER JOIN game
+    ON game.id = score.game_id
+    ORDER BY
+    points DESC
   `;
+
   const result = await db.query(sql);
+
+  let highscores = result.rows;
+
+  highscores.filter((tag, index, array) => array.findIndex(t => t.color == tag.color && t.label == tag.label) == index);
 
   res.render("index", {
     title: "Highscores",
-    highscores: result.rows,
+    highscores,
   });
 });
 

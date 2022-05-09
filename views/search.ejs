@@ -5,7 +5,7 @@
   <div class="searchGames">
     <div class="container1">
       <h3><%= game.title %></h3>
-      <p><%= game.genre %>, <%= game.release_year %></p>
+      <p><%= game.name %>, <%= game.release_year.toLocaleDateString(); %></p>
     </div>
     <div><img src="<%= game.image_url %>" alt="" width="200px"/></div>
   </div>

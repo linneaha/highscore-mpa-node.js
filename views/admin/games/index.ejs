@@ -14,10 +14,10 @@
   <tbody>
     <% games.forEach(game => { %>
     <tr>
-      <td><%= game.id %></td>
-      <td><%= game.title %></td>
-      <td><%= game.genre %></td>
-      <td><%= game.release_year %></td>
+      <td><%= game.game_id %></td>
+      <td><%= game.game_title %></td>
+      <td><%= game.genre_name %></td>
+      <td><%= game.game_release_year.toLocaleDateString(); %></td>
     </tr>
     <% }) %>
   </tbody>

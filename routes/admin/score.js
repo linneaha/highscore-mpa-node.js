@@ -3,8 +3,13 @@ var router = express.Router();
 
 router.get('/new', async (req, res) => {
 
+    const db = req.app.locals.db;
+
+    const games = await getGames(db);
+
     res.render('admin/score/new', {
-        title: 'Administration'
+        title: 'Administration',
+        games
     });
 });
 
@@ -31,12 +36,11 @@ router.post('/new', async (req, res) => {
     res.redirect('/admin/games');
 });
 
-
 async function saveHighscore(score, db) {
 
     const sql = `
         INSERT INTO score (
-            game,
+            game_id,
             player,
             date,
             points
@@ -49,7 +53,18 @@ async function saveHighscore(score, db) {
         score.date,
         score.points
     ]);
+}
 
+async function getGames (db) {
+
+    const sql = `
+    SELECT id,
+           title
+    FROM game
+    `
+    const result = await db.query(sql);
+
+    return result.rows;
 }
 
 

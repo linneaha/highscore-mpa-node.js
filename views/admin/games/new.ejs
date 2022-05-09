@@ -1,21 +1,32 @@
-<h2>Nytt Spel</h2>
-<form method="post">
-  <label for="title">Titel</label>
-  <input type="text" id="title" name="title"/>
-
-  <label for="desc">Beskrivning</label>
-  <textarea id="desc" name="description" rows="10" cols="50"></textarea>
-
-  <label for="image">Bild</label>
-  <input type="text" id="image" name="imageUrl"/>
-
-  <label for="genre">Genre</label>
-  <select name="genre" id="genre">
-    <option>Tetris</option>
-  </select>
-
-  <label for="releaseYear">Lanseringsår</label>
-  <input type="number" id="releaseYear" name="releaseYear"/>
-
-  <button>Lägg till</button>
-</form>
+<div class="form">
+  <h2>Nytt Spel</h2>
+  <form method="post">
+    <label for="title">Titel</label>
+    <div>
+      <input type="text" id="title" name="title" />
+    </div>
+    <label for="desc">Beskrivning</label>
+    <div>
+      <textarea id="desc" name="description" rows="10" cols="50"></textarea>
+    </div>
+    <label for="image">Bild</label>
+    <div>
+      <input type="text" id="image" name="imageUrl" />
+    </div>
+    <label for="genre">Genre</label>
+    <div>
+      <select name="genre" id="genre">
+      <% genres.forEach(genre => { %> 
+        <option value="<%= genre.id %>"><%= genre.name %></option>
+     <% }) %>
+      </select>
+    </div>
+    <label for="releaseYear">Lanseringsår</label>
+    <div>
+      <input type="date" id="releaseYear" name="releaseYear" />
+    </div>
+    <div>
+      <button>Lägg till</button>
+    </div>
+  </form>
+</div>

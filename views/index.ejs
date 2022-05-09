@@ -1,12 +1,18 @@
-<h1><%= title %></h1>
+<h1>Highscores</h1>
+<div id="indexContainer">
+  <a href="/admin/score/new"> <button>Nytt highscore</button></a>
+</div>
 <% highscores.forEach(highscore => { %>
 <div class="indexGames">
   <div class="container1">
-    <h3><%= highscore.game %></h3>
+    <a href="/games/<%= highscore.url_slug %>">
+      <h3><%= highscore.title %></h3>
+    </a>
     <p><%= highscore.player %>, <%= highscore.date.toLocaleDateString(); %></p>
   </div>
   <div class="container2">
     <p><%= highscore.points %></p>
   </div>
 </div>
+
 <% }) %>

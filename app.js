@@ -9,7 +9,8 @@ const { Pool } = require("pg");
 var indexRouter = require("./routes/index");
 var searchRouter = require("./routes/search");
 var gamesRouter = require("./routes/games");
-var adminRouter = require("./routes/admin/games")
+var adminGamesRouter = require("./routes/admin/games")
+var adminScoreRouter = require("./routes/admin/score")
 
 var app = express();
 
@@ -36,7 +37,8 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/", indexRouter);
 app.use("/search", searchRouter);
 app.use("/games", gamesRouter);
-app.use("/admin/games", adminRouter)
+app.use("/admin/games", adminGamesRouter)
+app.use("/admin/score", adminScoreRouter)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
