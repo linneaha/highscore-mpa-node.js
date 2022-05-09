@@ -19,9 +19,19 @@ router.get("/", async (req, res) => {
 
   const result = await db.query(sql);
 
-  let highscores = result.rows;
+  let scores = result.rows;
 
-  highscores.filter((tag, index, array) => array.findIndex(t => t.color == tag.color && t.label == tag.label) == index);
+  const highscoresObj = {};
+
+  for (const item of scores) {
+    const { title, points} = item;
+    const currentValue = highscoresObj[title];
+    if (!currentValue || currentValue.points < points) {
+      highscoresObj[title] = item;
+    }
+  }
+  
+  const highscores = Object.values(highscoresObj);
 
   res.render("index", {
     title: "Highscores",
