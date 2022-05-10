@@ -13,8 +13,6 @@ router.get("/", async (req, res) => {
     FROM score
     INNER JOIN game
     ON game.id = score.game_id
-    ORDER BY
-    points DESC
   `;
 
   const result = await db.query(sql);
@@ -24,13 +22,13 @@ router.get("/", async (req, res) => {
   const highscoresObj = {};
 
   for (const item of scores) {
-    const { title, points} = item;
+    const { title, points } = item;
     const currentValue = highscoresObj[title];
     if (!currentValue || currentValue.points < points) {
       highscoresObj[title] = item;
     }
   }
-  
+
   const highscores = Object.values(highscoresObj);
 
   res.render("index", {

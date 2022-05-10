@@ -1,13 +1,13 @@
 <p>Hittade <%= games.length %> träffar</p>
 
 <% games.forEach(game => { %>
-<a href="/games/<%= game.url_slug %>">
-  <div class="searchGames">
-    <div class="container1">
+<div class="searchGames">
+  <div class="container1">
+    <a href="/games/<%= game.url_slug %>">
       <h3><%= game.title %></h3>
-      <p><%= game.name %>, <%= game.release_year.toLocaleDateString(); %></p>
-    </div>
-    <div><img src="<%= game.image_url %>" alt="" width="200px"/></div>
+    </a>
+    <p><%= game.name %>, <%= game.release_year.toLocaleDateString(); %></p>
   </div>
-</a>
+  <img src="<%= game.image_url %>" alt="" width="200px" />
+</div>
 <% }) %>
