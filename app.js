@@ -9,17 +9,17 @@ const { Pool } = require("pg");
 var indexRouter = require("./routes/index");
 var searchRouter = require("./routes/search");
 var gamesRouter = require("./routes/games");
-var adminGamesRouter = require("./routes/admin/games")
-var adminScoreRouter = require("./routes/admin/score")
+var adminGamesRouter = require("./routes/admin/games");
+var adminScoreRouter = require("./routes/admin/score");
 
 var app = express();
 
 app.locals.db = new Pool({
-  host: 'localhost',
-  user: 'postgres',
-  password: 'secretpassword',
-  database: 'highscore'
-})
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_DATABASE,
+});
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
@@ -37,8 +37,8 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/", indexRouter);
 app.use("/search", searchRouter);
 app.use("/games", gamesRouter);
-app.use("/admin/games", adminGamesRouter)
-app.use("/admin/score", adminScoreRouter)
+app.use("/admin/games", adminGamesRouter);
+app.use("/admin/score", adminScoreRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
