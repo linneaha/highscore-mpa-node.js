@@ -6,6 +6,8 @@ var logger = require("morgan");
 var expressLayouts = require("express-ejs-layouts");
 const { Pool } = require("pg");
 
+require('dotenv').config();
+
 var indexRouter = require("./routes/index");
 var searchRouter = require("./routes/search");
 var gamesRouter = require("./routes/games");
